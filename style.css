@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.dynamic-title {
+    font-size: 2.5rem;
+    animation: color-change 3s infinite alternate;
+}
+
+@keyframes color-change {
+    0% { color: #ff5733; }
+    50% { color: #33ff57; }
+    100% { color: #5733ff; }
+}
+
+.video-wrapper {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    margin: auto;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    pointer-events: none;
+    z-index: 1;
+    font-size: 2rem;
+    color: gold;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+

@@ -36,7 +36,7 @@ body {
     height: 70%;
     margin: auto;
     overflow: visible;
-    z-index: 10;  /* Met la vidéo au premier plan */
+    z-index: 10;
 }
 
 iframe {
@@ -44,19 +44,19 @@ iframe {
     height: 100%;
     border: none;
     position: relative;
-    z-index: 10;  /* Assure que l'iframe est devant les bulles */
+    z-index: 10;
 }
 
 /* Animation des bulles */
 .bubble {
     position: absolute;
-    width: 50px;  /* Taille des bulles */
-    height: 50px; /* Taille des bulles */
+    width: 50px;  
+    height: 50px;
     border-radius: 50%;
     animation: bubble-animation 8s infinite ease-in-out;
     pointer-events: none;
     opacity: 0.7;
-    z-index: 5;  /* Met les bulles derrière la vidéo */
+    z-index: 5;
 }
 
 /* Animation des bulles pour qu'elles soient visibles et se déplacent */
@@ -74,8 +74,6 @@ iframe {
         opacity: 0.6;
     }
 }
-
-
 
 /* Répartition des bulles sur toute la largeur et hauteur de l'écran avec des couleurs aléatoires */
 .bubble-1 { top: 0%; left: 120%; background-color: #ff0000; }

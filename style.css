@@ -7,7 +7,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 .container {
@@ -30,35 +32,92 @@ body {
 
 .video-wrapper {
     position: relative;
-    width: 60%;
-    height: 60%;
+    width: 70%;
+    height: 70%;
     margin: auto;
+    overflow: visible;
+    z-index: 10;  /* Met la vidéo au premier plan */
 }
 
 iframe {
     width: 100%;
     height: 100%;
     border: none;
+    position: relative;
+    z-index: 10;  /* Assure que l'iframe est devant les bulles */
 }
 
-.stars {
+/* Animation des bulles */
+.bubble {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    width: 50px;  /* Taille des bulles */
+    height: 50px; /* Taille des bulles */
+    border-radius: 50%;
+    animation: bubble-animation 8s infinite ease-in-out;
     pointer-events: none;
-    z-index: 1;
-    font-size: 2rem;
-    color: gold;
-    animation: twinkle 2s infinite ease-in-out;
+    opacity: 0.7;
+    z-index: 5;  /* Met les bulles derrière la vidéo */
 }
 
-@keyframes twinkle {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
+/* Animation des bulles pour qu'elles soient visibles et se déplacent */
+@keyframes bubble-animation {
+    0% {
+        transform: translateY(0) translateX(-500%) scale(0.6); /* Départ depuis le bord gauche */
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-200px) translateX(100px) scale(1.5); /* Déplacement vertical et horizontal */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) translateX(-500%) scale(0.6); /* Retour au bord gauche */
+        opacity: 0.6;
+    }
 }
+
+
+
+/* Répartition des bulles sur toute la largeur et hauteur de l'écran avec des couleurs aléatoires */
+.bubble-1 { top: 0%; left: 120%; background-color: #ff0000; }
+.bubble-2 { top: 10%; left: 5%; background-color: #33FF57; }
+.bubble-3 { top: 15%; left: 20%; background-color: #5733FF; }
+.bubble-4 { top: 5%; left: 100%; background-color: #FF33A6; }
+.bubble-5 { top: 120%; left: 120%; background-color: #FF9633; }
+.bubble-6 { top: 130%; left: 110%; background-color: #33FFEC; }
+.bubble-7 { top: 25%; left: 130%; background-color: #FF33FF; }
+.bubble-8 { top: 115%; left: 0%; background-color: #FF8C00; }
+.bubble-9 { top: 35%; left: 8%; background-color: #32CD32; }
+.bubble-10 { top: 50%; left: 0%; background-color: #FFFF00; }
+.bubble-11 { top: 55%; left: 80%; background-color: #8A2BE2; }
+.bubble-12 { top: 120%; left: 70%; background-color: #FF1493; }
+.bubble-13 { top: 45%; left: 60%; background-color: #FFD700; }
+.bubble-14 { top: 120%; left: 50%; background-color: #ADFF2F; }
+.bubble-15 { top: 130%; left: 40%; background-color: #20B2AA; }
+.bubble-16 { top: 120%; left: 30%; background-color: #FF6347; }
+.bubble-17 { top: 60%; left: 20%; background-color: #8B0000; }
+.bubble-18 { top: 70%; left: 10%; background-color: #7FFF00; }
+.bubble-19 { top: 80%; left: 5%; background-color: #8B4513; }
+.bubble-20 { top: 120%; left: 15%; background-color: #4B0082; }
+
+.bubble-21 { top: 10%; left: 25%; background-color: #6A5ACD; }
+.bubble-22 { top: 20%; left: 35%; background-color: #F0E68C; }
+.bubble-23 { top: 30%; left: 45%; background-color: #FF4500; }
+.bubble-24 { top: 40%; left: 55%; background-color: #2E8B57; }
+.bubble-25 { top: 50%; left: 0%; background-color: #A52A2A; }
+.bubble-26 { top: 60%; left: 75%; background-color: #FFB6C1; }
+.bubble-27 { top: 70%; left: 85%; background-color: #DC143C; }
+.bubble-28 { top: 100%; left: 95%; background-color: #00008B; }
+.bubble-29 { top: 15%; left: 30%; background-color: #D2691E; }
+.bubble-30 { top: 25%; left: 40%; background-color: #B22222; }
+
+.bubble-31 { top: 35%; left: 50%; background-color: #00BFFF; }
+.bubble-32 { top: 120%; left: 60%; background-color: #A9A9A9; }
+.bubble-33 { top: 55%; left: 70%; background-color: #F08080; }
+.bubble-34 { top: 65%; left: 80%; background-color: #3CB371; }
+.bubble-35 { top: 75%; left: 90%; background-color: #F5DEB3; }
+.bubble-36 { top: 10%; left: 40%; background-color: #800080; }
+.bubble-37 { top: 20%; left: 50%; background-color: #228B22; }
+.bubble-38 { top: 30%; left: 60%; background-color: #FF00FF; }
+.bubble-39 { top: 40%; left: 70%; background-color: #FFD700; }
+.bubble-40 { top: 120%; left: 80%; background-color: #0000FF; }
 

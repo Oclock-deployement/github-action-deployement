@@ -23,6 +23,7 @@
             with:
               sparse-checkout: |
                 index.html
+                style.css
               sparse-checkout-cone-mode: false
     
             # Transferer le fichier vers artifact

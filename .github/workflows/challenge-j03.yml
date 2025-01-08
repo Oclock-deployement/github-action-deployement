@@ -35,12 +35,12 @@ jobs:
     # Étape 4: Création du fichier cowsay.txt et écriture de la variable COWSAY_MESSAGE dedans
     - name: Set the cowsay message
       run: |
-        echo "${{ secrets.COWSAY_MESSAGE }}" > /var/www/html/cowsay/cowsay.txt  # Écriture du message secret dans cowsay.txt
+        echo "${{ vars.COWSAY_MESSAGE }}" > /var/www/html/cowsay/cowsay.txt  # Écriture du message secret dans cowsay.txt
 
     # Étape 5: Redémarrage du serveur Apache pour appliquer les changements
-    - name: Restart Nginc to apply changes
-      run: |
-        sudo systemctl restart nginx  # Redémarre Nginx pour prendre en compte le nouveau fichier
+    # - name: Restart Nginc to apply changes
+    #   run: |
+    #     sudo systemctl restart nginx  # Redémarre Nginx pour prendre en compte le nouveau fichier
 
     # Étape 6: Vérification que le fichier a bien été créé et affiche son contenu
     - name: Check if file is created

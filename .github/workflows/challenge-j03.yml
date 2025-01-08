@@ -1,0 +1,49 @@
+# workflow challenge j03
+
+---
+name: Create cowsay file
+
+# Déclenchement du workflow sur chaque push vers la branche main
+on:
+  push:
+    branches:
+      - challj03
+
+jobs:
+  create_cowsay_file:
+    # Utilisation d'une machine virtuelle Ubuntu pour exécuter les étapes
+    runs-on: self-hosted
+
+    steps:
+    # Étape 1: Checkout du code, cette étape permet de récupérer le code de votre dépôt
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Étape 2: Installation et démarrage du serveur Apache
+    # - name: Set up Apache server
+    #   run: |
+    #     sudo apt update
+    #     sudo apt install -y apache2        # Installation d'Apache
+    #     sudo systemctl start apache2       # Démarrage du service Apache
+    #     sudo systemctl enable apache2      # Activation d'Apache au démarrage du système
+
+    # Étape 3: Création du répertoire pour stocker le fichier à servir
+    # - name: Create directory for serving content
+    #   run: |
+    #     sudo mkdir -p /var/www/html/cowsay  # Création du répertoire "cowsay" dans /var/www/html
+# 
+    # Étape 4: Création du fichier cowsay.txt et écriture de la variable COWSAY_MESSAGE dedans
+    - name: Set the cowsay message
+      run: |
+        echo "${{ secrets.COWSAY_MESSAGE }}" > /var/www/html/cowsay/cowsay.txt  # Écriture du message secret dans cowsay.txt
+
+    # Étape 5: Redémarrage du serveur Apache pour appliquer les changements
+    - name: Restart Nginc to apply changes
+      run: |
+        sudo systemctl restart nginx  # Redémarre Nginx pour prendre en compte le nouveau fichier
+
+    # Étape 6: Vérification que le fichier a bien été créé et affiche son contenu
+    - name: Check if file is created
+      run: |
+        cat /var/www/html/cowsay/cowsay.txt  # Affiche le contenu du fichier créé
+

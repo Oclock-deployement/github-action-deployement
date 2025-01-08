@@ -33,6 +33,10 @@ jobs:
         sudo mkdir -p /var/www/html/cowsay  # Création du répertoire "cowsay" dans /var/www/html
 
     # Étape 4: Création du fichier cowsay.txt et écriture de la variable COWSAY_MESSAGE dedans
+    - name: Set permissions for the cowsay directory
+      run: |
+        sudo chmod -R 755 /var/www/html/cowsay  # Accorder les permissions en lecture, écriture et exécution pour l'utilisateur
+        
     - name: Set the cowsay message
       run: |
         echo "${{ secrets.COWSAY_MESSAGE }}" > /var/www/html/cowsay/cowsay.txt  # Écriture du message secret dans cowsay.txt

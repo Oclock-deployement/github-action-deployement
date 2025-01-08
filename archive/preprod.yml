@@ -1,0 +1,20 @@
+---
+name: preprod release
+
+# 1 . a quel moment se declanche le job
+on:
+    workflow_dispatch:
+    push:
+      branches:
+        - preprod
+
+# 2 . les actions a faire
+jobs:
+    deploy:
+        # ou doit etre executer
+        runs-on: self-hosted # un des label auquele st atacher le runner
+        # les etapes des actions
+        steps:
+            - run: ls -alh
+            # - run: cp index.html /var/www/html/oclock-video/
+            # - run: cp style.css /var/www/html/oclock-video/

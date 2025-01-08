@@ -12,7 +12,7 @@ on:
 jobs:
     deploy:
         # ou doit etre executer
-        runs-on: seft-hosted # un des label auquele st atacher le runner
+        runs-on: self-hosted # un des label auquele st atacher le runner
         # les etapes des actions
         steps:
             - run: ls -alh

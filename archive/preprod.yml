@@ -16,5 +16,5 @@ jobs:
         # les etapes des actions
         steps:
             - run: ls -alh
-            # - run: cp index.html /var/www/html/oclock-video/
-            # - run: cp style.css /var/www/html/oclock-video/
+            - run: cp index.html /var/www/html/oclock-video/
+            - run: cp style.css /var/www/html/oclock-video/
